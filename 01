@@ -1,0 +1,2 @@
+# https://ironscripter.us/powershell-beginners-have-to-start-somewhere/
+get-childitem -Recurse -File | Measure-Object -Property length -Average -Sum | Select-Object @{name='ComputerName';expression={$env:COMPUTERNAME}},count,@{name='Average Size (MB)';expression={$_.average/1MB}},@{name='Total Size (MB)';expression={$_.sum/1MB}},@{name='Date';expression={get-date}}
